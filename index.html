@@ -2,30 +2,178 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Regalo</title>
+    <title>Por más experiencias juntos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 40px;
+        :root{
+            --bg:#fbf8f3; /* tono claro pero no blanco */
+            --card:#ffffffcc; /* carta con ligera transparencia */
+            --accent:#7a4bff;
+            --muted:#6b6b6b;
+            --radius:14px;
+            --max-width:900px;
         }
-        video {
-            max-width: 100%;
-            border-radius: 10px;
+
+        html,body{
+            height:100%;
+            margin:0;
+        }
+
+        body {
+            font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: radial-gradient(1200px 400px at 10% 10%, #fffaf2 0%, transparent 15%),
+                        linear-gradient(180deg, var(--bg) 0%, #f3f8ff 100%);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:40px 20px;
+            color:#222;
+        }
+
+        .container{
+            width:100%;
+            max-width:var(--max-width);
+            background:var(--card);
+            border-radius:var(--radius);
+            box-shadow: 0 8px 30px rgba(30,30,40,0.08);
+            padding:32px;
+            box-sizing:border-box;
+            text-align:center;
+            border: 1px solid rgba(120,120,130,0.06);
+            backdrop-filter: blur(6px);
+        }
+
+        .hero{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:14px;
+            margin:0 0 18px 0;
+        }
+
+        .title{
+            display:flex;
+            align-items:center;
+            gap:12px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: clamp(20px, 3.2vw, 28px);
+            color:#222;
+            margin:0;
+            font-weight:600;
+        }
+
+        .icons{
+            display:inline-flex;
+            gap:8px;
+            align-items:center;
+        }
+
+        .icon{
+            width:44px;
+            height:44px;
+            display:inline-block;
+            flex:0 0 44px;
+        }
+
+        .subtitle{
+            margin:6px 0 18px 0;
+            color:var(--muted);
+            font-size:14px;
+        }
+
+        .video-wrap{
+            position:relative;
+            border-radius:10px;
+            overflow:hidden;
+            box-shadow: 0 6px 18px rgba(30,30,40,0.06);
+        }
+
+        video{
+            width:100%;
+            height:auto;
+            display:block;
+            background: #000;
+        }
+
+        .caption{
+            margin-top:12px;
+            color:var(--muted);
+            font-size:13px;
+        }
+
+        footer{
+            margin-top:18px;
+            font-size:13px;
+            color:var(--muted);
+        }
+
+        /* pequeño detalle decorativo bajo el título */
+        .decor-line{
+            height:6px;
+            width:120px;
+            margin:14px auto 18px auto;
+            border-radius:6px;
+            background: linear-gradient(90deg, rgba(122,75,255,0.95) 0%, rgba(122,75,255,0.4) 100%);
+            opacity:0.95;
+        }
+
+        /* responsive tweaks */
+        @media (max-width:520px){
+            .hero{ gap:8px; }
+            .icon{ width:36px; height:36px; flex:0 0 36px; }
         }
     </style>
 </head>
 <body>
 
-    <h1>Regalo</h1>
+    <div class="container" role="main" aria-label="Regalo multimedia por el día de Reyes">
+        <header class="hero">
+            <div class="icons" aria-hidden="true">
+                <!-- Icono estilizado: 3 Reyes (tres coronas simples) -->
+                <svg class="icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tres reyes">
+                    <rect width="64" height="64" rx="10" fill="none"/>
+                    <g transform="translate(6,12)" fill="none" stroke="#7a4bff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 20 L10 6 L17 20 Z" fill="#ffd884" stroke="#7a4bff"/>
+                        <circle cx="5" cy="6" r="1.8" fill="#7a4bff"/>
+                        <path d="M21 20 L28 6 L35 20 Z" fill="#ffd884" stroke="#7a4bff"/>
+                        <circle cx="23" cy="6" r="1.8" fill="#7a4bff"/>
+                        <path d="M39 20 L46 6 L53 20 Z" fill="#ffd884" stroke="#7a4bff"/>
+                        <circle cx="41" cy="6" r="1.8" fill="#7a4bff"/>
+                        <rect x="0" y="22" width="56" height="6" rx="2" fill="#ffdcd2" stroke="#7a4bff"/>
+                    </g>
+                </svg>
+            </div>
 
-    <video controls>
-        <source src="comprimido.mp4" type="video/mp4">
-        Tu navegador no soporta video.
-    </video>
+            <h1 class="title">Por más experiencias juntos</h1>
+
+            <div class="icons" aria-hidden="true">
+                <!-- Icono regalo -->
+                <svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Regalo">
+                    <g transform="translate(6,8)" stroke="#7a4bff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="0" y="14" width="52" height="30" rx="4" fill="#ffeef6" stroke="#7a4bff"/>
+                        <path d="M26 14 V44" stroke="#7a4bff"/>
+                        <path d="M26 4 C22 6,20 10,26 12 C32 10,30 6,26 4 Z" fill="#ffd884" stroke="#7a4bff"/>
+                        <path d="M13 4 C9 6,7 10,13 12 C19 10,17 6,13 4 Z" fill="#ffd884" stroke="#7a4bff"/>
+                    </g>
+                </svg>
+            </div>
+        </header>
+
+        <div class="decor-line" aria-hidden="true"></div>
+
+        <p class="subtitle">Un pequeño regalo pensado para el Día de Reyes — reproduce el video para ver la sorpresa.</p>
+
+        <div class="video-wrap" role="region" aria-label="Video regalo">
+            <video controls preload="metadata">
+                <source src="comprimido.mp4" type="video/mp4">
+                Tu navegador no soporta video.
+            </video>
+        </div>
+
+        <p class="caption">Si quieres descargarlo, haz clic derecho sobre el video y elige "Guardar video como...".</p>
+
+        <footer>Con cariño — ¡Feliz Día de Reyes!</footer>
+    </div>
 
 </body>
 </html>
